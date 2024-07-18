@@ -1,3 +1,4 @@
+import 'package:fltr_test_app/common/constants.dart';
 import 'package:fltr_test_app/presentation/qubits/tasks_qubit.dart';
 import 'package:fltr_test_app/presentation/qubits/states/abs_state.dart';
 import 'package:fltr_test_app/presentation/qubits/states/tasks_state.dart';
@@ -21,13 +22,7 @@ class HomeScreen extends AbsPageScreen {
           case Status.failed:
             return _buildSuccessScreen(context, state, state.errorMessage);
           case Status.success:
-            String message = 'Longitude:\n'
-                '${state.data?.value?.longitude ?? "-"}\n'
-                'Latitude:\n'
-                '${state.data?.value?.latitude ?? "-"}\n'
-                'Time consumed:\n'
-                '${state.data?.timeConsumed.toDouble() ?? "-"} ms';
-            return _buildSuccessScreen(context, state, message);
+            return _buildSuccessScreen(context, state, successFetchMessage);
           default:
             String message = "Push button to receive data";
             return _buildSuccessScreen(context, state, message);
